@@ -28,15 +28,15 @@ body {
 
 /* Sidebar - Editor UI */
 .sidebar {
-    width: 380px;
+    width: 400px;
     background: #1e293b;
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 15px 0 45px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     z-index: 100;
-    padding: 25px;
+    padding: 30px;
     overflow-y: auto;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .sidebar h2 {
@@ -47,17 +47,42 @@ body {
     margin-bottom: 5px;
 }
 
+.sidebar p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-section h3 {
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    border-right: 4px solid var(--gold-bright);
+    padding-right: 10px;
+}
+
+.dimension-inputs {
+    display: flex;
+    gap: 15px;
+}
+
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 15px;
+    flex: 1;
 }
 
 .form-group label {
     display: block;
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--accent-blue);
+    color: #cbd5e1;
     margin-bottom: 6px;
-    text-transform: uppercase;
 }
 
 .form-group input,
@@ -69,20 +94,33 @@ body {
     border-radius: 8px;
     color: white;
     font-size: 1rem;
+    font-family: 'Tajawal', sans-serif;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+    background: #3d4b5f;
 }
 
 .btn-print {
     width: 100%;
-    padding: 16px;
+    padding: 18px;
     background: var(--gold-gradient);
     color: #1e293b;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: 800;
     font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 /* Preview Area */
@@ -93,25 +131,50 @@ body {
     flex-direction: column;
     align-items: center;
     background: #0f172a;
-    padding: 2cm;
+    padding: 3cm 2cm;
 }
 
 .print-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5cm;
+    gap: 2cm;
 }
 
-/* THE CARD - EXACT 15x9 CM */
+/* THE CARD */
 .card {
     width: var(--card-width);
     height: var(--card-height);
     background: white;
     position: relative;
     overflow: hidden;
-    display: block;
-    /* Change from flex to block to control internal layout better */
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.7);
+    contain: layout;
+    /* Ensure everything stays in frame */
+}
+
+/* CURVED ELEMENTS */
+.curve-element {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    z-index: 1;
+}
+
+.curve-element.top {
+    top: -60%;
+    left: -10%;
+    border-radius: 45%;
+    transform: rotate(-15deg);
+    background: linear-gradient(to bottom, rgba(46, 204, 113, 0.1), transparent);
+}
+
+.curve-element.bottom {
+    bottom: -60%;
+    right: -10%;
+    border-radius: 40%;
+    transform: rotate(20deg);
+    background: linear-gradient(to top, rgba(0, 77, 122, 0.2), transparent);
 }
 
 .background-overlay {
@@ -120,7 +183,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
 }
 
 .content {
@@ -129,57 +192,70 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
-    padding: 0.8cm;
+    z-index: 5;
+    padding: 1cm;
+    display: flex;
+    flex-direction: column;
 }
 
 /* FACE 1 - FRONT */
 .face-1 .background-overlay {
-    background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+    background: linear-gradient(135deg, #001a35 0%, #003366 100%);
 }
 
 .face-1 .content {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
 .face-1 .logo-container {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20pt;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+    padding: 1.5cm;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 20pt;
 }
 
 .face-1 .logo {
     height: 3.5cm;
-    filter: drop-shadow(0 0 15px rgba(0, 114, 181, 0.5));
+    filter: drop-shadow(0 0 20px rgba(0, 114, 181, 0.6));
 }
 
 .face-1 h1 {
-    font-size: 32pt;
-    font-weight: 800;
+    font-size: 34pt;
+    font-weight: 900;
+    margin-bottom: 5pt;
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .face-1 h2 {
-    font-size: 20pt;
-    color: #e2e8f0;
-    margin-top: 5pt;
-    font-weight: 400;
+    font-size: 22pt;
+    font-weight: 300;
+    color: #f1f5f9;
+    letter-spacing: 2pt;
+}
+
+.slogan-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15pt;
+    margin-top: 25pt;
+}
+
+.slogan-line {
+    height: 2pt;
+    width: 60pt;
+    background: var(--gold-gradient);
+    border-radius: 2pt;
 }
 
 .face-1 .slogan {
-    font-size: 16pt;
+    font-size: 18pt;
     color: var(--primary-green);
-    margin-top: 15pt;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 10pt;
+    font-weight: 700;
 }
 
 /* FACE 2 - BACK */
@@ -188,16 +264,19 @@ body {
 }
 
 .face-2 .background-overlay {
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    background:
+        radial-gradient(circle at top right, rgba(46, 204, 113, 0.05), transparent 40%),
+        linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
 }
 
-.face-2 .accent-line {
+.face-2 .accent-curve {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 0.5cm;
+    left: 0;
+    width: 25%;
     height: 100%;
-    background: var(--gold-gradient);
+    background: var(--primary-blue);
+    clip-path: ellipse(50% 80% at 0% 50%);
     z-index: 1;
 }
 
@@ -206,81 +285,100 @@ body {
     padding: 1cm 1.5cm;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .face-2 .header {
     display: flex;
     align-items: center;
-    gap: 0.5cm;
+    gap: 0.6cm;
+    margin-bottom: 1cm;
 }
 
 .face-2 .logo-small {
-    height: 1.5cm;
+    height: 2cm;
+    z-index: 10;
 }
 
-.face-2 .header h3 {
-    font-size: 18pt;
+.face-2 .header-text h3 {
+    font-size: 20pt;
+    font-weight: 900;
     color: var(--primary-blue);
 }
 
+.face-2 .header-text p {
+    font-size: 14pt;
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
 .face-2 .info-list {
-    margin-top: 0.5cm;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 15pt;
+    gap: 18pt;
+    margin-right: 1.5cm;
 }
 
 .face-2 .info-item {
     display: flex;
-    align-items: flex-start;
-    gap: 10pt;
+    align-items: center;
+    gap: 12pt;
 }
 
 .face-2 .info-item .icon {
-    font-size: 16pt;
-    color: var(--accent-blue);
+    font-size: 18pt;
+    background: #e2e8f0;
+    padding: 8pt;
+    border-radius: 12pt;
+    min-width: 40pt;
+    text-align: center;
 }
 
 .face-2 .info-item p {
-    font-size: 12pt;
-    font-weight: 500;
+    font-size: 11pt;
+    font-weight: 600;
     line-height: 1.4;
 }
 
 .face-2 .qr-container {
     position: absolute;
-    bottom: 1cm;
-    left: 1cm;
-    background: white;
-    padding: 10pt;
-    border-radius: 10pt;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e2e8f0;
+    bottom: 0.8cm;
+    left: 0.8cm;
+    text-align: center;
 }
 
 .qr-code {
     width: 2.2cm;
     height: 2.2cm;
+    padding: 5pt;
+    background: white;
+    border-radius: 8pt;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Watermark */
+.qr-text {
+    font-size: 8pt;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-top: 5pt;
+}
+
 .face-2 .watermark {
     position: absolute;
-    bottom: -10%;
-    right: -5%;
-    width: 50%;
-    height: 50%;
+    bottom: -15%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
     background: url('sawylogo.png') no-repeat center;
     background-size: contain;
     opacity: 0.03;
     filter: grayscale(100%);
+    transform: rotate(-15deg);
 }
 
 /* PRINT RULES */
 @media print {
     @page {
-        size: 15cm 9cm landscape;
         margin: 0;
     }
 

@@ -4,70 +4,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صيدلية الصاوي | مـولد الكـروت</title>
+    <title>صيدلية الصاوي | مولد الكروت المطور</title>
     <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap"
         rel="stylesheet">
 </head>
 
-<body>
+<body class="generator-mode">
     <div class="sidebar no-print">
-        <h2>تعديل بيانات الكارت</h2>
+        <header>
+            <h2>محرر الكروت الذكي</h2>
+            <p>تصميم بريميوم مع تحكم كامل</p>
+        </header>
+
         <form id="cardForm">
-            <div class="form-group">
-                <label>اسم الصيدلية (عربي)</label>
-                <input type="text" id="input-name-ar" value="صيدلية الصاوي">
+            <div class="form-section">
+                <h3>أبعاد الكارت (سم)</h3>
+                <div class="dimension-inputs">
+                    <div class="form-group">
+                        <label>العرض</label>
+                        <input type="number" id="input-width" value="15" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label>الطول</label>
+                        <input type="number" id="input-height" value="9" step="0.1">
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pharmacy Name (EN)</label>
-                <input type="text" id="input-name-en" value="Elsawy Pharmacy">
+
+            <div class="form-section">
+                <h3>البيانات الأساسية</h3>
+                <div class="form-group">
+                    <label>اسم الصيدلية (عربي)</label>
+                    <input type="text" id="input-name-ar" value="صيدلية الصاوي">
+                </div>
+                <div class="form-group">
+                    <label>Pharmacy Name (EN)</label>
+                    <input type="text" id="input-name-en" value="Elsawy Pharmacy">
+                </div>
+                <div class="form-group">
+                    <label>الشعار المكتوب</label>
+                    <input type="text" id="input-slogan" value="علمنا دوئنا صحتك">
+                </div>
+                <div class="form-group">
+                    <label>العنوان</label>
+                    <textarea id="input-address"
+                        rows="2">212 عمارات الضباط - امتداد رمسيس 2 - مدينة نصر، القاهرة.</textarea>
+                </div>
             </div>
-            <div class="form-group">
-                <label>الشعار المكتوب</label>
-                <input type="text" id="input-slogan" value="علمنا، دوئنا، صحتك">
+
+            <div class="form-section">
+                <h3>أرقام التواصل</h3>
+                <div class="form-group">
+                    <label>الهاتف الأرضي</label>
+                    <input type="text" id="input-phone" value="0220812392">
+                </div>
+                <div class="form-group">
+                    <label>رقم الموبايل</label>
+                    <input type="text" id="input-mobile" value="01024697326">
+                </div>
+                <div class="form-group">
+                    <label>رقم الواتساب</label>
+                    <input type="text" id="input-whatsapp" value="01273284500">
+                </div>
             </div>
-            <div class="form-group">
-                <label>العنوان</label>
-                <textarea id="input-address">212 عمارات الضباط - امتداد رمسيس 2 - مدينة نصر، القاهرة.</textarea>
-            </div>
-            <div class="form-group">
-                <label>الهاتف الأرضي</label>
-                <input type="text" id="input-phone" value="0220812392">
-            </div>
-            <div class="form-group">
-                <label>الموبايل والواتساب</label>
-                <input type="text" id="input-mobile" value="01024697326 | 01273284500">
-            </div>
-            <div class="form-group">
-                <label>الموقع الإلكتروني</label>
-                <input type="text" id="input-url" value="https://sawy-pharmacy-app.netlify.app/">
-            </div>
+
             <button type="button" class="btn-print" onclick="window.print()">
-                طـباعة الكـروت (15x9 سم)
+                <span>🖨️</span> طـباعة الكـروت البريميوم
             </button>
         </form>
+
+        <footer class="sidebar-footer">
+            <p>يتم الحفظ تلقائياً في المتصفح</p>
+        </footer>
     </div>
 
     <div class="preview-container">
         <div class="print-container">
             <!-- Face 1 -->
-            <section class="card face-1">
+            <section class="card face-1" id="card-face-1">
                 <div class="background-overlay"></div>
+                <div class="curve-element top"></div>
+                <div class="curve-element bottom"></div>
                 <div class="content">
                     <div class="logo-container">
                         <img src="sawylogo.png" alt="Logo" class="logo">
                     </div>
-                    <h1 id="display-name-ar">صيدلية الصاوي</h1>
-                    <h2 id="display-name-en">Elsawy Pharmacy</h2>
-                    <p class="slogan" id="display-slogan">علمنا، دوئنا، صحتك</p>
+                    <div class="titles">
+                        <h1 id="display-name-ar">صيدلية الصاوي</h1>
+                        <h2 id="display-name-en">Elsawy Pharmacy</h2>
+                        <div class="slogan-container">
+                            <span class="slogan-line"></span>
+                            <p class="slogan" id="display-slogan">علمنا دوئنا صحتك</p>
+                            <span class="slogan-line"></span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Face 2 -->
-            <section class="card face-2">
+            <section class="card face-2" id="card-face-2">
                 <div class="background-overlay"></div>
-                <div class="accent-line"></div>
+                <div class="accent-curve"></div>
                 <div class="watermark"></div>
                 <div class="content">
                     <div class="header">
@@ -84,19 +123,20 @@
                         </div>
                         <div class="info-item">
                             <span class="icon">📞</span>
-                            <p id="display-phone">0220812392</p>
+                            <p>أرضي: <span id="display-phone">0220812392</span></p>
                         </div>
                         <div class="info-item">
                             <span class="icon">📱</span>
-                            <p id="display-mobile">01024697326 | 01273284500</p>
+                            <p>موبايل: <span id="display-mobile">01024697326</span></p>
                         </div>
                         <div class="info-item">
-                            <span class="icon">🌐</span>
-                            <p id="display-url">sawy-pharmacy-app.netlify.app</p>
+                            <span class="icon">💬</span>
+                            <p>واتساب: <span id="display-whatsapp">01273284500</span></p>
                         </div>
                     </div>
                     <div class="qr-container">
                         <img id="display-qr" src="" class="qr-code">
+                        <p class="qr-text">امسح الكود للتواصل</p>
                     </div>
                 </div>
             </section>
