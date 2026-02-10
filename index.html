@@ -4,27 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elsawy Pharmacy | Premium Card Generator</title>
+    <title>صيدلية الصاوي | مـولد الكـروت</title>
     <link rel="stylesheet" href="style.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;800&family=Tajawal:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap"
         rel="stylesheet">
 </head>
 
-<body class="generator-mode">
+<body>
     <div class="sidebar no-print">
-        <header>
-            <h2>Card Editor</h2>
-            <p>Super Premium Design System</p>
-        </header>
-
+        <h2>تعديل بيانات الكارت</h2>
         <form id="cardForm">
             <div class="form-group">
-                <label>اسم الصيدلية</label>
+                <label>اسم الصيدلية (عربي)</label>
                 <input type="text" id="input-name-ar" value="صيدلية الصاوي">
             </div>
             <div class="form-group">
-                <label>Pharmacy Name</label>
+                <label>Pharmacy Name (EN)</label>
                 <input type="text" id="input-name-en" value="Elsawy Pharmacy">
             </div>
             <div class="form-group">
@@ -32,12 +28,11 @@
                 <input type="text" id="input-slogan" value="علمنا، دوئنا، صحتك">
             </div>
             <div class="form-group">
-                <label>العنوان بالتفصيل</label>
-                <textarea id="input-address"
-                    rows="3">212 عمارات الضباط - امتداد رمسيس 2 - مدينة نصر، القاهرة.</textarea>
+                <label>العنوان</label>
+                <textarea id="input-address">212 عمارات الضباط - امتداد رمسيس 2 - مدينة نصر، القاهرة.</textarea>
             </div>
             <div class="form-group">
-                <label>الرقم الأرضي</label>
+                <label>الهاتف الأرضي</label>
                 <input type="text" id="input-phone" value="0220812392">
             </div>
             <div class="form-group">
@@ -45,79 +40,68 @@
                 <input type="text" id="input-mobile" value="01024697326 | 01273284500">
             </div>
             <div class="form-group">
-                <label>رابط الموقع</label>
+                <label>الموقع الإلكتروني</label>
                 <input type="text" id="input-url" value="https://sawy-pharmacy-app.netlify.app/">
             </div>
-
             <button type="button" class="btn-print" onclick="window.print()">
-                <span>🖨️</span> PRINT PREMIUM CARDS
+                طـباعة الكـروت (15x9 سم)
             </button>
         </form>
-
-        <footer class="sidebar-footer">
-            <p>Strict Dimensions: 15cm x 9cm</p>
-        </footer>
     </div>
 
     <div class="preview-container">
         <div class="print-container">
-            <!-- Face 1: Front -->
+            <!-- Face 1 -->
             <section class="card face-1">
                 <div class="background-overlay"></div>
-                <div class="glow-layer"></div>
                 <div class="content">
                     <div class="logo-container">
                         <img src="sawylogo.png" alt="Logo" class="logo">
                     </div>
-                    <div class="titles">
-                        <h1 id="display-name-ar">صيدلية الصاوي</h1>
-                        <h2 id="display-name-en">Elsawy Pharmacy</h2>
-                        <div class="slogan-bar"></div>
-                        <p class="slogan" id="display-slogan">علمنا، دوئنا، صحتك</p>
-                    </div>
+                    <h1 id="display-name-ar">صيدلية الصاوي</h1>
+                    <h2 id="display-name-en">Elsawy Pharmacy</h2>
+                    <p class="slogan" id="display-slogan">علمنا، دوئنا، صحتك</p>
                 </div>
             </section>
 
-            <!-- Face 2: Back -->
+            <!-- Face 2 -->
             <section class="card face-2">
                 <div class="background-overlay"></div>
-                <div class="accent-border"></div>
+                <div class="accent-line"></div>
+                <div class="watermark"></div>
                 <div class="content">
-                    <div class="header-small">
+                    <div class="header">
                         <img src="sawylogo.png" alt="Logo" class="logo-small">
                         <div class="header-text">
                             <h3 id="display-name-ar-small">صيدلية الصاوي</h3>
                             <p id="display-name-en-small">Elsawy Pharmacy</p>
                         </div>
                     </div>
-
-                    <div class="info-grid">
+                    <div class="info-list">
                         <div class="info-item">
-                            <div class="icon">📍</div>
+                            <span class="icon">📍</span>
                             <p id="display-address">212 عمارات الضباط - امتداد رمسيس 2 - مدينة نصر، القاهرة.</p>
                         </div>
                         <div class="info-item">
-                            <div class="icon">📞</div>
+                            <span class="icon">📞</span>
                             <p id="display-phone">0220812392</p>
                         </div>
                         <div class="info-item">
-                            <div class="icon">📱</div>
+                            <span class="icon">📱</span>
                             <p id="display-mobile">01024697326 | 01273284500</p>
                         </div>
                         <div class="info-item">
-                            <div class="icon">🌐</div>
+                            <span class="icon">🌐</span>
                             <p id="display-url">sawy-pharmacy-app.netlify.app</p>
                         </div>
                     </div>
-
-                    <div class="qr-area">
-                        <img src="" id="display-qr" alt="QR Code" class="qr-code">
+                    <div class="qr-container">
+                        <img id="display-qr" src="" class="qr-code">
                     </div>
                 </div>
             </section>
         </div>
     </div>
-
     <script src="main.js"></script>
 </body>
 
