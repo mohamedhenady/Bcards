@@ -1,0 +1,248 @@
+:root {
+    --primary-blue: #0072b5;
+    --primary-green: #2ecc71;
+    --dark-blue: #00334e;
+    --gold: #d4af37;
+    --white: #ffffff;
+    --card-width: 15cm;
+    --card-height: 9cm;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f0f0f0;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2cm;
+}
+
+.print-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1cm;
+}
+
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border: 0.1mm solid #eee;
+    /* Bleed/Cut margin visualization */
+}
+
+/* Common Background Elements */
+.background-overlay {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    z-index: 1;
+}
+
+.face-1 .background-overlay {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(46, 204, 113, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 114, 181, 0.2) 0%, transparent 40%),
+        linear-gradient(135deg, var(--dark-blue) 0%, #004d7a 100%);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 1.2cm;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Face 1 specific */
+.face-1 .logo {
+    max-height: 4cm;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    margin-bottom: 0.5cm;
+}
+
+.face-1 .titles {
+    text-align: center;
+}
+
+.face-1 h1 {
+    font-size: 28pt;
+    font-weight: 700;
+    margin-bottom: 5pt;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.face-1 h2 {
+    font-size: 18pt;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 15pt;
+    opacity: 0.9;
+}
+
+.face-1 .slogan {
+    font-size: 14pt;
+    font-weight: 400;
+    color: var(--white);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 5pt;
+}
+
+/* Face 2 specific */
+.face-2 {
+    background: white;
+}
+
+.face-2 .background-overlay {
+    background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%);
+}
+
+.face-2::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 40%;
+    height: 60%;
+    background: url('sawylogo.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.05;
+    z-index: 1;
+    filter: grayscale(100%);
+}
+
+.face-2 .content {
+    color: var(--dark-blue);
+    align-items: flex-start;
+    padding: 0.8cm 1.2cm;
+}
+
+.face-2 .header-small {
+    display: flex;
+    align-items: center;
+    gap: 0.5cm;
+    width: 100%;
+    margin-bottom: 0.5cm;
+}
+
+.face-2 .logo-small {
+    height: 1.5cm;
+}
+
+.face-2 .header-text h3 {
+    font-size: 16pt;
+    color: var(--primary-blue);
+}
+
+.face-2 .header-text p {
+    font-size: 10pt;
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+.face-2 .divider {
+    width: 30%;
+    border: none;
+    border-top: 2pt solid var(--primary-green);
+    margin-bottom: 0.6cm;
+}
+
+.face-2 .info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12pt;
+    width: 100%;
+}
+
+.face-2 .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10pt;
+}
+
+.face-2 .info-item .icon {
+    font-size: 14pt;
+    min-width: 20pt;
+    text-align: center;
+}
+
+.face-2 .info-item p {
+    font-size: 11pt;
+    line-height: 1.4;
+    color: #444;
+}
+
+.face-2 .qr-placeholder {
+    position: absolute;
+    bottom: 0.8cm;
+    left: 1.2cm;
+}
+
+.qr-mock {
+    width: 2.2cm;
+    height: 2.2cm;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 8pt;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Print Handling */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+
+    .no-print {
+        display: none;
+    }
+
+    .card {
+        box-shadow: none;
+        page-break-after: always;
+        border: none;
+    }
+
+    .print-container {
+        gap: 0;
+    }
+}
+
+.controls {
+    margin-top: 1cm;
+}
+
+.controls button {
+    padding: 15px 30px;
+    font-size: 16pt;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

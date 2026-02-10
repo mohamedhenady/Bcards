@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elsawy Pharmacy Premium Cards</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="print-container">
+        <!-- Face 1: Front -->
+        <section class="card face-1">
+            <div class="background-overlay"></div>
+            <div class="content">
+                <div class="logo-wrapper">
+                    <img src="sawylogo.png" alt="Elsawy Pharmacy Logo" class="logo">
+                </div>
+                <div class="titles">
+                    <h1 class="pharmacy-name-ar">صيدلية الصاوي</h1>
+                    <h2 class="pharmacy-name-en">Elsawy Pharmacy</h2>
+                    <p class="slogan">"علمنا، دوئنا، صحتك"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Face 2: Back -->
+        <section class="card face-2">
+            <div class="background-overlay"></div>
+            <div class="content">
+                <div class="header-small">
+                    <img src="sawylogo.png" alt="Elsawy Pharmacy Logo" class="logo-small">
+                    <div class="header-text">
+                        <h3>صيدلية الصاوي</h3>
+                        <p>Elsawy Pharmacy</p>
+                    </div>
+                </div>
+                <hr class="divider">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <p>212 عمارات الضباط - امتداد رمسيس 2 - مدينة نصر، القاهرة.</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📞</span>
+                        <p>0220812392</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📱</span>
+                        <p>01024697326 | 01273284500 (واتساب)</p>
+                    </div>
+                    <div class="info-item social">
+                        <div class="social-item">
+                            <span class="icon">🌐</span>
+                            <p>sawy-pharmacy-app.netlify.app</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="qr-placeholder">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sawy-pharmacy-app.netlify.app/"
+                        alt="QR Code" class="qr-code">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Print Controls (Not part of the card) -->
+    <div class="controls no-print">
+        <button onclick="window.print()">Print Cards (CMYK Ready)</button>
+    </div>
+</body>
+
+</html>
